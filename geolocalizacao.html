@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landing Page com Geolocalização</title>
+<style>
+  /* Estilos CSS para a página */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  .main-content {
+    padding: 20px;
+    text-align: center;
+  }
+  .offer-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  .offer-image {
+    max-width: 100%;
+    border-radius: 5px;
+  }
+  .offer-description {
+    margin-top: 20px;
+  }
+  .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Oferta Especial na sua Região!</h1>
+</div>
+
+<div class="main-content">
+  <div class="offer-container">
+    <h2>Oferta Especial para Você!</h2>
+    <p>Com base na sua localização, temos uma oferta especial disponível exclusivamente para você.</p>
+    <img class="offer-image" src="offer_image.jpg" alt="Oferta Especial">
+    <div class="offer-description">
+      <h3>Detalhes da Oferta:</h3>
+      <ul>
+        <li>Produto ou Serviço: Nome do Produto ou Serviço</li>
+        <li>Desconto: 20% de desconto para moradores da sua região</li>
+        <li>Validade: Oferta válida até DD/MM/AAAA</li>
+      </ul>
+      <p>Para aproveitar esta oferta especial, visite nossa loja física mais próxima ou utilize o código promocional "LOCAL20" em nossa loja online.</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer" id="footer">
+  <p>Sua localização: <span id="location"></span></p>
+</div>
+
+<script>
+  // Função para obter a localização do usuário
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      alert("Geolocalização não é suportada pelo seu navegador.");
+    }
+  }
+
+  // Função para exibir a localização do usuário
+  function showPosition(position) {
+    var locationElement = document.getElementById("location");
+    locationElement.innerHTML = "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
+  }
+
+  // Chama a função getLocation quando a página é carregada
+  getLocation();
+</script>
+
+</body>
+</html>
+
